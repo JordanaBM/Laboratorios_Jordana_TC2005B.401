@@ -5,8 +5,8 @@ body { background-color: #f4d4d3; }
 
 /*cabecera*/
 header { background-color: #fffafa; }
-header h1 { text-align: center; color: navy; padding: 0.5em; font-size: 1.5em; }
-header h2 { text-align: center; color: #663366; padding: 0.5em; font-size: 1.2em; }
+header h1 { text-align: center; color: navy; padding: 0.5em; font-size: xx-large; }
+header h2 { text-align: center; color: #663366; padding: 0.5em; font-size: x-large; }
 
 /*navegador*/
 nav { background-color: #005853; min-height: 2em; }
@@ -34,13 +34,24 @@ aside { width: 25%; float: left; }
 #anuncio1 p { font-size: 0.9em; padding: 0.2em 1em; }
 
 /*pie de página: footer*/
-footer { clear: both; background-color: #82c3c3; }
+footer { clear: both; background-color: #a8cccc; }
 footer h1 { text-align: center; font-size: 1.4em; color: navy; padding: 0.7em; }
 footer h2 { text-align: center; font-size: 1em; padding: 0.4em; }
+footer h3 { text-align: justify; font-size: 1em; padding: 0.5em 2em }
 footer a { text-decoration: none; color: #005853; }
+footer ul { text-align: justify; font-size: .8em; padding: 0.5em 3em }
 
 /*Para imágenes centradas*/
 .img-centro {
     margin: 10px auto 10px;
     display: block;
   }
+
+  /*Para justificar el texto*/
+.justificar-texto{
+  text-align: justify;;
+}
+
+.logo{
+  padding: 2em 3em;
+}
