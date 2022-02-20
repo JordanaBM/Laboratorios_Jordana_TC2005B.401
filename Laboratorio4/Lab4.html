@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <link href= "style.css" rel="stylesheet" type="text/css">
+<title>Laboratorio 4</title>
+</head>
+
+<body>
+    <header>
+        <img src="http://elacontecer.com.mx/wp-content/uploads/2019/10/TecMonterrey_Horizontal_RGB.jpg"
+           width="200"
+           height="50"
+          class = "logo">
+        <h1>Laboratorio 4 JavaScript</h1>
+        <h2>Construcción de software y toma de decisiones (Gpo 401)</h2>
+      </header>
+      <nav> 
+          <h1>Jordana Betancourt Menchaca</h1>
+          <h2>A01707434</h2>
+          <h3>A01707434@tec.mx</h3>
+        
+      </nav>
+      <section>
+        <h1>Ejercicios</h1>
+
+        <p><b>Ejercicio 1:</b></p>
+        <br></br>
+        <div id="resultados1"></div>
+        <br></br> 
+
+        <p><b>Ejercicio 2:</b></p>
+        <br></br>
+        <div id="resultados2"></div>
+        <br></br> 
+
+        <p><b>Ejercicio 3:</b></p>
+        <br></br>
+        <div id="resultados3"></div>
+        <br></br> 
+
+        <p><b>Ejercicio 4:</b></p>
+        <br></br>
+        <div id="resultados4"></div>
+        <br></br> 
+
+        <p><b>Ejercicio 5:</b></p>
+        <br></br>
+        <div id="resultados5"></div>
+        <br></br>
+
+        <p><b>Ejercicio 6:</b></p>
+        <br></br>
+        <div id="resultados6"></div>
+        <div id="resultados7"></div>
+        <br></br>
+
+        <h1> Preguntas a responder</h1>
+        <h3>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</h3>
+          <article>
+          <p class = "centrar-texto"><b>JAVA</b></p>
+          <p>Java es un lenguaje que hay que compilar. Es necesario utilizar la JVM (Java Virtual Machine) para que el código pueda ser interpretado por la «máquina».</p>
+          <br></br>
+
+          <p class = "centrar-texto"><b>JAVA SCRIPT</b></p>
+          <p>Decimos que JavaScript es un lenguaje interpretado porque se lee y traduce directamente a medida que se ejecuta el programa.</p>
+          <br></br>
+
+          <p class = "centrar-texto"><b>Java / JavaScript: tipado</b></p>
+          <p>JavaScript tiene un tipado débil, mientras que Java presenta un tipado fuerte. Cuando se habla de tipado, nos referimos a identificar el tipo de datos que contiene una variable: una cadena de caracteres, un número entero o decimal, un boolean (dato que permite indicar los valores verdadero o falso), etc.</p>
+          <br></br>
+
+          <p class = "centrar-texto"><b>Java / JavaScript: diferentes usos y finalidades</b></p>
+          <p>JavaScript es un lenguaje de programación web, recomendado para aplicaciones y páginas web. Este lenguaje, tradicionalmente considerado más «creativo», está por tanto dedicado al desarrollo de aplicaciones denominadas front end.</p>
+          <br></br>
+          <p>Java es un lenguaje de programación originalmente diseñado para aplicaciones integradas. En otras palabras, se trata de dispositivos no considerados ordenadores, ya que cuentan con recursos limitados (memoria, disco duro); como las tablets, consolas de a bordo, etc.</p>
+          <br></br>
+
+          </article>
+          <br></br>
+
+        <h3>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</h3>
+          <article>
+              <p><b>Podemos trabajar con horas y fechas en Javascript utilizando el objeto Date. Se crea con la instrucción "var hoy = new Date();"</b> </p>
+              <br></br>
+              <ul>
+                <li>getFullYear()--> Nos devuelve el año con 4 dígitos.</li>
+                <li>getMonth() --> Nos devuelve el número de mes del 0 (enero) al 11 (diciembre)</li>
+                <li>getDate() --> Nos devuelve el día del mes, del 1 al 31</li>
+                <li>getDay() --> Nos devuelve el día de la semana del 0 (domingo) al 6 (sábado)</li>
+                <li>getHours() --> Nos devuelve la hora actual, desde 0 a 23  (formato 24 horas)</li>
+                <li>getMinutes() --> Nos devuelve los minutos actuales, desde 0 a 59 </li> 
+              </ul>
+          </article>
+          <br></br>
+
+        <h3>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</h3>
+          <article>
+          <p><b>Un par de square brackets [] representa un arreglo en JavaScript. Todos los elementos en un arreglo están separados por una coma(,).</b></p>
+          <br></br>
+          <ul>
+            <li>push() --> Inserta un elemento al final del arreglo.</li>
+            <li>unshift() --> Inserta un elemento al inicio del arreglo.</li>
+            <li>pop() --> Remueve un elemento del final del arreglo.</li>
+            <li>shift() --> Remueve un elemento del principio del arreglo.</li>
+            <li>length --> Determina el tamaño del arreglo.</li>
+            <li>Array.isArray() --> Determina si el valor es un arreglo. </li> 
+          </ul>
+          </article>
+          <br></br>
+
+        <h3>¿Cómo se declara una variable con alcance local dentro de una función?</h3>
+          <article>
+          <p><b>Let</b> permite declarar variables limitando su alcance (scope) al bloque, declaración, o expresión donde se está usando</p>
+          </article>
+          <br></br>
+
+        <h3>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</h3>
+          <article>
+          <p><b>El uso de variables globales no es aconsejable a pesar de que aparentemente nos parezca muy útil, esto se debe a varias razones fundamentales:</b></p>
+          <br></br>
+
+          <ul>
+            <li>Legibilidad menor.</li>
+            <li>Nos condiciona en muchos casos que el programa sólo sirva para un conjunto de casos determinados.</li>
+            <li>Mayor uso de memoria</li>
+          </ul>
+          <br></br>
+          <p><b>Pero no siempre es malo, pueden emplearse para:</b></p>
+          <br></br>
+
+          <ul>
+              <li>Valores constantes</li>
+          </ul>
+          </article>
+          <br></br>
+
+
+        </section>
+        <script src = "lab4.js"></script>
+</body>
+
+<footer>
+    <h1>Página creada en Visual Studio</h1>
+    <img src="https://www.solucionex.com/sites/default/files/posts/imagen/vscode-800x450.png"
+      width="50"
+      height="30"
+      class="img-centro">
+    <h2>Descarga en: <a href="https://code.visualstudio.com/">Visual Studio</a></h2>
+    <h3>Bibliografía:</h3>
+    <ul>
+     <li>Barbier, A. (s. f.). ¿Cuál es la diferencia entre Java vs JavaScript? Wild Code School. Recuperado 18 de febrero de 2022, de <a href= "https://www.wildcodeschool.com/es-ES/blog/diferencia-entre-java-vs-javascript">Wild Code School</a></li>
+     <br><br/>
+     <li>Digital Learning. (2017, 12 mayo). Métodos del objeto Date. Recuperado 18 de febrero de 2022, de <a href= "https://www.digitallearning.es/intro-programacion-js/metodos-date.html">Digital Learning</a></li> 
+     <br><br/>
+     <li>Zubikarai, S. (2022, 12 enero). Manual de arreglos en JavaScript: Métodos de arreglos de JS explicados con ejemplos. Free Code Camp. Recuperado 18 de febrero de 2022, de<a href= "https://www.freecodecamp.org/espanol/news/el-manual-de-arreglos-en-javascript/#:%7E:text=M%C3%A9todos%20de%20arreglo%20JavaScript&text=push()%20%E2%80%93%20Inserta%20un%20elemento,elemento%20del%20principio%20del%20arreglo">Free Code Camp</a></li>
+     <br><br/>
+   </ul>
+ 
+ 
+ </footer>

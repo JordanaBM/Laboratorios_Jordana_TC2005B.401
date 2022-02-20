@@ -1,0 +1,75 @@
+* { margin: auto; padding: 0; font-family: arial;  }
+
+/*body: cuerpo de la página*/
+body { background-color: #deeebc; }
+
+/*cabecera*/
+header { background-color: #fffafa; }
+header h1 { text-align: center; color: navy; padding: 0.5em; font-size: xx-large; }
+header h2 { text-align: center; color: #663366; padding: 0.5em; font-size: x-large; }
+
+/*navegador*/
+nav { background-color: #005853; min-height: 2em; }
+nav p { display: inline; }
+nav h1 { text-align: center; color: rgb(255, 255, 255); padding: 0.5em; font-size: 1.2em; }
+nav h2 { text-align: center; color: rgb(255, 255, 255); padding: 0.5em; font-size: 1em; }
+nav h3 { text-align: center; color: rgb(255, 255, 255); padding: 0.5em; font-size: .8em; }
+nav a:hover, nav a:active { text-decoration: none; color: #9bf5ff; background-color: #543683; margin: 0.3em; }
+
+/*principal: section:*/
+section { width: 75%; background-color: #deeebc; float: center; }
+section h1 { text-align: center; padding: 0.5em; color: #005853; font-size: 1.4em; }
+section h2 { text-align: center; padding: 0.5em; color: grey; font-size: 1.2em; }
+section h3 { text-align: left; padding: 0.3em 3em; color: #663366; font-size: 1em;  }
+
+/*artículos: article*/
+article { margin: 0.5em 3em; padding: 0.5em 2em; background-color: white; border: 3px inset #005853; }
+article p { text-align: justify; }
+
+/*pie de página: footer*/
+footer { clear: both; background-color: #a8cccc; }
+footer h1 { text-align: center; font-size: 1.4em; color: navy; padding: 0.7em; }
+footer h2 { text-align: center; font-size: 1em; padding: 0.4em; }
+footer h3 { text-align: justify; font-size: 1em; padding: 0.5em 2em }
+footer a { text-decoration: none; color: #005853; }
+footer ul { text-align: justify; font-size: .8em; padding: 0.5em 3em }
+
+/*Para imágenes centradas*/
+.img-centro {
+    margin: 10px auto 10px;
+    display: block;
+  }
+
+  /*Para justificar el texto*/
+  .justificar-texto{
+    text-align: justify;;
+  }
+  
+  .logo{
+    padding: 2em 3em;
+  }
+
+  .centrar-texto{
+    text-align: center;;
+  }
+
+/* Formato para la tabla*/
+    table {
+        width: 300px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    th,
+    td {
+        padding: 15px;
+        background-color: rgba(255,255,255,0.2);
+        color: rgb(113, 43, 122);
+        text-align: center;
+    }
+    
+    
+ 
+    
+
+
