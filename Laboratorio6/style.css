@@ -1,0 +1,39 @@
+body {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/002/181/339/non_2x/pretty-watercolor-background-in-turquoise-color-free-vector.jpg");
+  background-size: 112rem;
+  
+}
+
+::placeholder{
+  color: rgba(59, 41, 20, 0.534);
+}
+
+
+.centrar-texto{
+    text-align: center;;
+  }
+
+.justificar-texto{
+    text-align: justify;;
+  }
+
+/*Para imágenes centradas*/
+.centro {
+    margin: 10px auto 10px;
+    display: block;
+  }
+
+/* Formato para la tabla*/
+    table {
+        width: 300px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    th,
+    td {
+        padding: 15px;
+        background-color: rgba(255,255,255,0.2);
+        color: rgb(113, 43, 122);
+        text-align: center;
+    }
