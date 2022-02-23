@@ -37,3 +37,6 @@ function Salir(id) {
 	id.style.fontFamily= "Arial";
 	}
 
+
+
+

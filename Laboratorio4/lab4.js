@@ -3,19 +3,19 @@
 const num = prompt("Escriba un número entero: ");
 
 
-function tabla_cuadrados(){
+function tabla_cuadrados_cubos(){
     let resultado = "<table>";
-    resultado += "<tr><td>Número</td>" + "<td>n^2</td></tr>";
+    resultado += "<tr><td>Número</td>" + "<td>n^2</td>" + "<td>n^3</td></tr>";
     for(let i = 1; i <= num;i++){
         resultado += "<tr>";
-        resultado += "<td>" + i +  "</td>" + "<td>" + i*i +  "</td>";
+        resultado += "<td>" + i +  "</td>" + "<td>" + i*i +  "</td>"  + "<td>" + i*i*i +  "</td>";
         resultado += "</tr>";
     }
     resultado += "</table>";
     return resultado;
 }
 
-document.getElementById("resultados1").innerHTML = tabla_cuadrados();
+document.getElementById("resultados1").innerHTML = tabla_cuadrados_cubos();
 
 
 //Ejercicio 2 -- Suma de números random
@@ -69,12 +69,6 @@ function randomArray(){
 
 }
 
-var miarray = randomArray();
-
-miarray.forEach(function(item,index,arr){
-    console.log(item);
-});
-
 
 //Para imprimir el array
 function imprimirArray(array){
@@ -92,6 +86,23 @@ function imprimirArray(array){
     return imprimir;
 }
 
+
+//Prueba contador 
+
+var prueba_contador = [1,2,-3,0]
+
+var esperado = imprimirArray(prueba_contador)
+
+esperado = esperado + "Enteros: 2<br></br>Negativos: 1<br></br>Ceros: 1<br></br><br></br>";
+
+esperado = esperado + "<p><em>Por función (Respuesta obtenida)</em><p></p><br>"
+
+var funcion_contador = contador(prueba_contador)
+
+esperado = esperado + funcion_contador
+
+
+//Con arrays randoms
 
 var dato = randomArray();
 
@@ -122,9 +133,21 @@ function contador (dato){
     
 }
 
+document.getElementById("pruebaContador").innerHTML = esperado;
 document.getElementById("resultados3").innerHTML = contador(dato);
 
+
 //Ejercicio 4 -- Función promedios
+
+var prueba_promedio = [3,5,6,-1]
+
+var esperado = imprimirArray(prueba_promedio) + "El promedio del array es: 3.25<br></br><br></br>"
+
+esperado = esperado + "<p><em>Por función (Respuesta obtenida)</em><p></p><br>"
+
+var funcion_promedio = promedios(prueba_promedio)
+
+esperado = esperado + funcion_promedio
 
 var datos = randomArray();
 
@@ -150,13 +173,25 @@ function promedios (datos){
     
 }
 
+document.getElementById("pruebaPromedio").innerHTML = esperado;
 document.getElementById("resultados4").innerHTML = promedios(datos);
 
 
 
 //Ejercicio 5 -- Función inverso
 
-var numero = Math.floor( Math.random() * 100);
+var prueba_inverso = 456
+
+var esperado = "Número = 456<br></br>" + "Invertido: 654<br></br><br></br>"
+
+esperado = esperado + "<p><em>Por función (Respuesta obtenida)</em><p></p><br>"
+
+var funcion_inverso = inverso(prueba_inverso)
+
+esperado = esperado + funcion_inverso
+
+var numero = Math.floor( Math.random() * 157);
+
 
 function inverso(numero){
 
@@ -172,12 +207,15 @@ function inverso(numero){
 
 }
 
+document.getElementById("pruebaInverso").innerHTML = esperado;
 document.getElementById("resultados5").innerHTML = inverso(numero);
 
-//Ejercicio 6 -- Toma de agua diaria
+
+
+//Ejercicio 6 -- Calcular área y perímetro de un rectángulo
 
 class Rectangulo {
-    constructor (alto, ancho) {
+    constructor (ancho,alto) {
       this.alto = alto;
       this.ancho = ancho;
     }
@@ -198,8 +236,7 @@ class Rectangulo {
      get perimetro() {
         //document.write("El perímetro es: " + this.calcPeri() + "<br></br>" )
        //return this.calcArea(); 
-       let respuesta =  "Base: " + this.ancho + "<br>Altura: " + this.alto + "<br></br>"
-       respuesta = respuesta + "El perímetro es: " + this.calcPeri() + "<br></br>"
+       let respuesta = "El perímetro es: " + this.calcPeri() + "<br></br>"
        return respuesta
      }
     // Método cacular perímetro
@@ -209,10 +246,30 @@ class Rectangulo {
 
   }
   
-  const rectangulo = new Rectangulo(10, 15);
+  //Prueba 1
 
-  document.getElementById("resultados6").innerHTML = rectangulo.area; // 150;
-  document.getElementById("resultados7").innerHTML = rectangulo.perimetro; // 50
+  var rectangulo = new Rectangulo (15,10)
+
+  var esperado = "Base: 15<br>Altura: 10<br></br>" + "El área es: 150<br></br>"
+
+  esperado = esperado + "El perímetro es: 50<br></br>"
+
+
+  document.getElementById("pruebaRect").innerHTML = esperado; 
+  document.getElementById("resultados6").innerHTML = rectangulo.area; 
+  document.getElementById("resultados7").innerHTML = rectangulo.perimetro; 
+
+  //Prueba 2
+
+  var rectangulo = new Rectangulo (30,20)
+
+  var esperado = "Base: 30<br>Altura: 20<br></br>" + "El área es: 600<br></br>"
+
+  esperado = esperado + "El perímetro es: 100<br></br>"
+
+  document.getElementById("pruebaRect2").innerHTML = esperado; 
+  document.getElementById("resultados8").innerHTML = rectangulo.area; 
+  document.getElementById("resultados9").innerHTML = rectangulo.perimetro;
   
 
 
