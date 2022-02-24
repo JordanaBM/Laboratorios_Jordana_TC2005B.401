@@ -17,7 +17,7 @@
 <body>
   <nav>
     <div class="nav-wrapper }#26a69a teal lighten-1">
-      <a href="#" class="brand-logo"><i class="material-icons">spa</i>Laboratorio 6: Programación orientada a Eventos</a>
+      <a  class="brand-logo"><i class="material-icons">spa</i>Laboratorio 6: Programación orientada a Eventos</a>
     </div>
   </nav>
   <br></br>
@@ -83,13 +83,17 @@
     <h4 class="centrar-texto">Validador de Contraseñas</h4>
     <div id="form" onkeypress="enterEnviar(event);">
       <div id="resultado"></div>  
-      <input type="password" placeholder="Contraseña" id="pass" >
+      <input type="password" placeholder="Contraseña" id="pass"  onkeyup="return passwordChanged();" >
       <input type="password" placeholder="Repetir contraseña" id="pass2">
       <input type="submit" onclick="validarContraseña()" class="waves-effect waves-light btn" value="Verificar">
       <div class="info">
         <p class = "info">Pulse ENTER para verificar.</p>
       </div>
     </div>
+    <h4 class="centrar-texto">¿Qué tan segura es tu contraseña?</h4>
+    <input name="password" id="password" type="password" size="15" maxlength="100" onkeyup="return passwordChanged();" />
+    <span id="strength">Escribe tu contraseña</span>
+    
     
 
       <div class="row">
@@ -103,11 +107,11 @@
                 </div>
                 <div class="card-content">
                 <h4 class="centrar-texto">Agua de Horchata</h4>
-                <p class="justificar-texto">Ayuda a disminuir la presión arterial, gracias a que funciona como vasodilatador natural. Además controla los niveles de azúcar en el cuerpo.<br><b>Sale más cara porque es la que se acaba primero</b></p>
+                <p class="justificar-texto">Ayuda a disminuir la presión arterial, gracias a que funciona como vasodilatador natural. Además controla los niveles de azúcar en el cuerpo.<br><br></p>
             </div>
                 <div class="card-action">
-                    <input id="horchata" type="number" min="1" max="100" value="1" style="width: 100px; height: 30px">
-                <a id="purchase" data-name="Agua de Horchata" data-price="20" class="waves-effect waves-light btn">Comprar</a>
+                    <input value = "0" id="horchata" type="hidden" min="0" max="100" value="1" style="width: 100px; height: 30px">
+                <a id="purchase_horchata" data-name="Agua de Horchata" data-price="20"  class="btn tooltipped" data-position="right" data-tooltip="Sale más cara porque es la que se acaba primero" >Comprar</a>
                 </div>
             </div>
         </div>
@@ -120,11 +124,11 @@
               </div>
               <div class="card-content">
               <h4 class="centrar-texto">Agua de Tamarindo</h4>
-              <p class="justificar-texto"> Posee minerales como el calcio, zinc, potasio, hierro, fósforo y magnesio. Favorece el transporte de oxígeno en el sistema circulatorio. Regula el nivel de colesterol en la sangre.<br><b>¿De alguien será el agua de tamarindo su favorita?</b></p>
+              <p class="justificar-texto"> Posee minerales como el calcio, zinc, potasio, hierro, fósforo y magnesio. Favorece el transporte de oxígeno en el sistema circulatorio. Regula el nivel de colesterol en la sangre.<br><br></p>
           </div>
               <div class="card-action">
-                  <input id="tamarindo" type="number" min="1" max="100" value="1" style="width: 100px; height: 30px">
-              <a id="purchase" data-name="Agua Tamarindo" data-price="10" class="waves-effect waves-light btn">Comprar</a>
+                  <input value = "0" id="tamarindo" type="hidden" min="0" max="100" style="width: 100px; height: 30px">
+              <a id="purchase_tamarindo" data-name="Agua Tamarindo" data-price="10"  class="btn tooltipped" data-position="right" data-tooltip="¿De alguien será el agua de tamarindo su favorita?">Comprar</a>
               </div>
           </div>
       </div>
@@ -137,11 +141,11 @@
             <div class="card-content">
             <h4 class="centrar-texto">Agua de Jamaica</h4>
             <p class="justificar-texto">Regula la presión arterial y previene la aparición de enfermedades cardiovasculares.
-              Reduce los niveles de colesterol y reduciendo la probabilidad de padecer alguna enfermedad del corazón.<br><b>Team Horchata</b></p>
+              Reduce los niveles de colesterol y la probabilidad de padecer alguna enfermedad del corazón.</p>
         </div>
             <div class="card-action">
-                <input id="jamaica" type="number" min="1" max="100" value="1" style="width: 100px; height: 30px">
-            <a id="purchase" data-name="Agua de Jamaica" data-price="15" class="waves-effect waves-light btn">Comprar</a>
+                <input value = "0" id="jamaica" type="hidden" min="0" max="100"  style="width: 100px; height: 30px">
+                <a id="purchase_jamaica" data-name="Agua de Jamaica" data-price="15" class="btn tooltipped" data-position="right" data-tooltip="Team Horchata">Comprar</a>
             </div>
         </div>
     </div>
@@ -152,11 +156,29 @@
             <br></br>
 
         </div>
-        <div id="cart" class="row">
-          <h4>Carrito</h4>
-          <div class="row" id="card-items"></div>
-      </div>
-      <br><br>
+       <h4><i class="material-icons">add_shopping_cart</i>Carrito</h4>
+       <table>
+
+        <tr>
+      
+          <th>Agua     </th>
+      
+          <th>Cantidad</th>
+      
+          <th>Precio</th>
+      
+        </tr>
+
+       </table>
+        <div id="cart_horchata" class="row"></div>
+        <div id="cart_tamarindo" class="row"></div>
+        <div id="cart_jamaica" class="row"></div>
+        <!-- <a id="vaciar_car" class="btn">Vaciar Carrito</a> -->
+        <div id="vaciar" class="row"></div>
+ 
+        <h4><i class="material-icons">attach_money</i>Total</h4>
+        <a id="total_car" class="btn">Calcular total</a>
+        <div id="pago" class="row"></div>
         </div>
 
 
@@ -175,8 +197,8 @@
             © 2022 Creado con Materialize <br>
             Biliografía: <br>
             <ol>
-              <li>Álvarez, M. (2018, 24 julio). Materialize CSS. Desarrollo Web. Recuperado 20 de febrero de 2022, de <a href="https://desarrolloweb.com/articulos/materialize-framework-css.html">Desarrollo Web</a></li>
-              <li>Fernández, J. J. (2021, 30 marzo). Materialize, el framework para frontend de Google. tooltyp. Recuperado 20 de febrero de 2022, de <a href= "https://www.tooltyp.com/materialize-el-framework-para-frontend-de-google/#:%7E:text=Materialize%20es%20el%20framework%20de,dise%C3%B1o%20de%20Google%2C%20sigue%20leyendo%20%E2%80%A6">Tooltyp</a></li>
+              <li>Álvarez, M. (2018, 24 julio). Materialize CSS. Desarrollo Web. Recuperado 20 de febrero de 2022, de <a  target="_blank" href="https://desarrolloweb.com/articulos/materialize-framework-css.html">Desarrollo Web</a></li>
+              <li>Fernández, J. J. (2021, 30 marzo). Materialize, el framework para frontend de Google. tooltyp. Recuperado 20 de febrero de 2022, de <a  target="_blank" href= "https://www.tooltyp.com/materialize-el-framework-para-frontend-de-google/#:%7E:text=Materialize%20es%20el%20framework%20de,dise%C3%B1o%20de%20Google%2C%20sigue%20leyendo%20%E2%80%A6">Tooltyp</a></li>
             </ol>
             </div>
         </div>
@@ -190,6 +212,6 @@
     <script src = "index.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script> 
-    <script type="text/javascript" src="js/jquery.validate.js"></script
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
 </body>
 </html>
