@@ -1,14 +1,52 @@
 //fs: filesystem
-const filesystem = require('fs');
+const fs = require('fs');
+const readline = require('readline');
 
-const peliculas = ["Forrest Gump", "Pulp Fiction", "Back to the Future", "Matrix"];
-const series = ["Breaking Bad", "Peaky Blinders", "Game of Thrones", "Vikingos"];
-const caricaturas = ["Los Simpson", "Bob Esponja", "Hora de Aventura", "Phineas y Ferb"];
+const peliculas = [];
+const series = [];
+const caricaturas = [];
 
-//Para devolver a la página principal
-// function red() { 
-//     location.href = "/"; 
-//  }
+/*Función para leer archivos por línea .txt*/
+function leerLinea (archivo,array){
+    const readInterface = readline.createInterface({
+        input: fs.createReadStream(archivo),
+        output: process.stdout,
+        console: false
+    });
+
+    readInterface.on('line', function(line) {
+        array.push(line)
+    });
+}
+
+/******
+ * Para películas
+*******/
+leerLinea('peliculas.txt',peliculas);
+
+/******
+ * Para series
+*******/
+leerLinea('series.txt',series);
+
+/******
+ * Para caricaturas
+*******/
+leerLinea('caricaturas.txt',caricaturas);
+
+/*Función para agregar Películas, series o caricaturas*/
+function agregar(archivo,dato){
+    fs.appendFile(archivo, dato + "\n", (err) => {
+        if (err) throw err;
+        console.log("Agregado correctamente!");
+     });
+}
+
+
+//const peliculas = ["Forrest Gump", "Pulp Fiction", "Back to the Future", "Matrix"];
+//const series = ["Breaking Bad", "Peaky Blinders", "Game of Thrones", "Vikingos"];
+//const caricaturas = ["Los Simpson", "Bob Esponja", "Hora de Aventura", "Phineas y Ferb"];
+
 
 const http = require('http');
 
@@ -26,10 +64,10 @@ const server = http.createServer( (request, response) => {
         response.write('<div class="container-fluid">')
         response.write('<a class="navbar-brand" href="/">')
         response.write('<img src="https://www.kindpng.com/picc/m/57-571833_peliculas-icono-png-cine-png-icon-transparent-png.png" alt="" width="40" height="40" class="d-inline-block align-text-top">')
-        response.write(' TOPs Audiovisuales')
+        response.write('TOPs Audiovisuales')
         response.write('</a>')
         response.write('<span class="navbar-text">')
-        response.write('<b>Jordana Betancourt Menchaca A01707434</b><br>Construcción de software y toma de decisiones (Gpo 401)')
+        response.write('<b>Jordana Betancourt Menchaca A01707434</b><br>Construcción de software y toma de decisiones (Gpo 401)<br>Lab10')
         response.write('</span></div></nav>')
         response.write(' <div class="container ">')
         response.write('<h1 id="principal">Este sitio es de Películas, Series y Caricaturas favoritas</h1><br>');
@@ -40,6 +78,7 @@ const server = http.createServer( (request, response) => {
         for (let i in peliculas) {
             response.write('<li class = "list-group-item list-group-item-dark">' + peliculas[i] + '</li>');
         }
+        console.log(peliculas)
         response.write('</ul>');
         response.write('<br>');
         response.write('<a href="/nuevaPeli"><button type="button" class="btn btn-outline-secondary">Agregar un nueva película</button></a>');
@@ -87,7 +126,7 @@ const server = http.createServer( (request, response) => {
     response.write(' TOPs Audiovisuales')
     response.write('</a>')
     response.write('<span class="navbar-text">')
-    response.write('<b>Jordana Betancourt Menchaca A01707434</b><br>Construcción de software y toma de decisiones (Gpo 401)')
+    response.write('<b>Jordana Betancourt Menchaca A01707434</b><br>Construcción de software y toma de decisiones (Gpo 401)<br>Lab10')
     response.write('</span></div></nav>')
     response.write(' <div class="container ">')
     response.write('<h1 id="principal">Este sitio es de películas favoritas</h1>');
@@ -108,7 +147,7 @@ const server = http.createServer( (request, response) => {
     console.log("POST");
     const datos = [];
     request.on('data', (dato) => {
-        console.log(dato);
+        //console.log(dato);
         datos.push(dato);
     });
     return request.on('end', () => {
@@ -118,6 +157,7 @@ const server = http.createServer( (request, response) => {
         const nuevo_dato = datos_completos.split('=')[1];
         console.log(nuevo_dato);
         peliculas.push(nuevo_dato);
+        agregar('peliculas.txt',nuevo_dato);
         response.setHeader('Content-Type', 'text/html');
         response.write('<!DOCTYPE html>');
         response.write('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">')
@@ -132,7 +172,7 @@ const server = http.createServer( (request, response) => {
         response.write(' TOPs Audiovisuales')
         response.write('</a>')
         response.write('<span class="navbar-text">')
-        response.write('<b>Jordana Betancourt Menchaca A01707434</b><br>Construcción de software y toma de decisiones (Gpo 401)')
+        response.write('<b>Jordana Betancourt Menchaca A01707434</b><br>Construcción de software y toma de decisiones (Gpo 401)<br>Lab10')
         response.write('</span></div></nav>')
         response.write(' <div class="container ">')
         response.write('<h1 id="principal">Este sitio es de Películas, Series y Caricaturas favoritas</h1><br>');
@@ -189,7 +229,7 @@ const server = http.createServer( (request, response) => {
     response.write(' TOPs Audiovisuales')
     response.write('</a>')
     response.write('<span class="navbar-text">')
-    response.write('<b>Jordana Betancourt Menchaca A01707434</b><br>Construcción de software y toma de decisiones (Gpo 401)')
+    response.write('<b>Jordana Betancourt Menchaca A01707434</b><br>Construcción de software y toma de decisiones (Gpo 401)<br>Lab10')
     response.write('</span></div></nav>')
     response.write(' <div class="container ">')
     response.write('<h1 id="principal">Este sitio es de Series favoritas</h1>');
@@ -210,7 +250,7 @@ const server = http.createServer( (request, response) => {
     console.log("POST");
     const datos = [];
     request.on('data', (dato) => {
-        console.log(dato);
+        //console.log(dato);
         datos.push(dato);
     });
     return request.on('end', () => {
@@ -220,6 +260,7 @@ const server = http.createServer( (request, response) => {
         const nuevo_dato = datos_completos.split('=')[1];
         console.log(nuevo_dato);
         series.push(nuevo_dato);
+        agregar('series.txt',nuevo_dato);
         response.setHeader('Content-Type', 'text/html');
         response.write('<!DOCTYPE html>');
         response.write('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">')
@@ -234,7 +275,7 @@ const server = http.createServer( (request, response) => {
         response.write(' TOPs Audiovisuales')
         response.write('</a>')
         response.write('<span class="navbar-text">')
-        response.write('<b>Jordana Betancourt Menchaca A01707434</b><br>Construcción de software y toma de decisiones (Gpo 401)')
+        response.write('<b>Jordana Betancourt Menchaca A01707434</b><br>Construcción de software y toma de decisiones (Gpo 401)<br>Lab10')
         response.write('</span></div></nav>')
         response.write(' <div class="container ">')
         response.write('<h1 id="principal">Este sitio es de Películas, Series y Caricaturas favoritas</h1>');
@@ -291,7 +332,7 @@ const server = http.createServer( (request, response) => {
     response.write(' TOPs Audiovisuales')
     response.write('</a>')
     response.write('<span class="navbar-text">')
-    response.write('<b>Jordana Betancourt Menchaca A01707434</b><br>Construcción de software y toma de decisiones (Gpo 401)')
+    response.write('<b>Jordana Betancourt Menchaca A01707434</b><br>Construcción de software y toma de decisiones (Gpo 401)<br>Lab10')
     response.write('</span></div></nav>')
     response.write(' <div class="container ">')
     response.write('<h1 id="principal">Este sitio es de Caricaturas favoritas</h1>');
@@ -312,7 +353,7 @@ const server = http.createServer( (request, response) => {
     console.log("POST");
     const datos = [];
     request.on('data', (dato) => {
-        console.log(dato);
+        //console.log(dato);
         datos.push(dato);
     });
     return request.on('end', () => {
@@ -322,6 +363,7 @@ const server = http.createServer( (request, response) => {
         const nuevo_dato = datos_completos.split('=')[1];
         console.log(nuevo_dato);
         caricaturas.push(nuevo_dato);
+        agregar('caricaturas.txt',nuevo_dato);
         response.setHeader('Content-Type', 'text/html');
         response.write('<!DOCTYPE html>');
         response.write('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">')
