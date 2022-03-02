@@ -1,0 +1,37 @@
+{
+
+//Básicamente estos son los datos de la aplicación que realizamos con express
+
+  "name": "laboratorio11",
+  "version": "1.0.0",
+  "description": "Laboratorio 11",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+//Como pueden ver se relaciona con el github en el que trabajo los laboratorios
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JordanaBM/Laboratorios_Jordana_TC2005B.401.git"
+  },
+  "author": "Jordana Betacnourt Menchaca",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JordanaBM/Laboratorios_Jordana_TC2005B.401/issues"
+  },
+  "homepage": "https://github.com/JordanaBM/Laboratorios_Jordana_TC2005B.401#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+
+//Las dependencias sirven para saber la versión con la que realizaste y funcionaban 
+los programas, los podemos instalar fácilmente si no corre.
+
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3"
+  }
+}
