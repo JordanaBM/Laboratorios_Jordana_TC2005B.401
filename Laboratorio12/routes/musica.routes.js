@@ -7,71 +7,41 @@ const router = express.Router();
 const fs = require('fs');
 const readline = require('readline');
 
-const artistas = [];
-const bandas = [];
+var artistas = [];
+var bandas = [];
 
-const capybaras = [
-    {nombre: "Pedro"}, 
-    {nombre: "Poncho"}, 
-    {nombre: "Pablo"}, 
-    {nombre: "Patricio"}
-];
+//Para leer los artistas
+fs.readFile('./tops/artistas.json', (err, data) => {
+    if (err) throw err;
+    artistas = JSON.parse(data);
+    console.log(artistas)
+   
+});
 
-const capybaras2 = [
-    {nombre: "Sofi"}, 
-    {nombre: "Ana"}, 
-    {nombre: "Karen"}, 
-    {nombre: "Paula"}
-];
-
-/*Función para leer archivos por línea .txt*/
-function leerLinea (archivo,array){
-    const readInterface = readline.createInterface({
-        input: fs.createReadStream(archivo),
-        output: process.stdout,
-        console: false
-    });
-
-    readInterface.on('line', function(line) {
-        array.push(line)
-    });
-}
-
-/******
- * Para artistas
-*******/
-leerLinea('tops/artistas.txt',artistas);
-
-/******
- * Para bandas
-*******/
-leerLinea('tops/bandas.txt',bandas);
+//Para leer las series
+fs.readFile('./tops/bandas.json', (err, data) => {
+    if (err) throw err;
+    bandas = JSON.parse(data);
+    console.log(bandas);
+   
+});
 
 
-
-/*Función para agregar artistas o bandas*/
-function agregar(archivo,dato){
-    fs.appendFile(archivo, dato + "\n", (err) => {
-        if (err) throw err;
-        console.log("Agregado correctamente!");
-     });
-}
 
 //Para artistas
 router.get('/nuevoArtista', (request, response, next) => {
     console.log('GET /nuevoArtista');
-    let respuesta = ''
     response.render('nuevoArtista');
 });
 
 router.post('/nuevoArtista', (request, response, next) => {
     console.log('POST /nuevoArtista');;
-    let nuevo_dato = request.body.nombre;
-    console.log(nuevo_dato)
-    artistas.push(nuevo_dato);
-    console.log(artistas)
+    console.log(request.body);
+    artistas.push(request.body);
+    // let peli = JSON.stringify(request.body)
+    // fs.writeFileSync('./tops/peliculas.json', peli, 'utf8');
     response.redirect('/musica');
-    agregar("tops/artistas.txt", nuevo_dato )
+   
        
 });
 
@@ -83,19 +53,18 @@ router.get('/nuevaBanda', (request, response, next) => {
 
 router.post('/nuevaBanda', (request, response, next) => {
     console.log('POST /nuevaBanda');;
-    let nuevo_dato = request.body.nombre;
-    console.log(nuevo_dato)
-    bandas.push(nuevo_dato);
-    console.log(bandas)
+    console.log(request.body);
+    bandas.push(request.body);
+    // let peli = JSON.stringify(request.body)
+    // fs.writeFileSync('./tops/peliculas.json', peli, 'utf8');
     response.redirect('/musica');
-    agregar("tops/bandas.txt", nuevo_dato )
        
 });
 
 //Pagina principal música
 router.use('/', (request, response, next) => {
     console.log('Ruta Principal');
-    response.render('listaMusica', {capybaras: capybaras});
+    response.render('listaMusica', {artistas: artistas, bandas: bandas});
 });
 
 module.exports = router;

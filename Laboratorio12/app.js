@@ -17,7 +17,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/audiovisual', rutas_audiovisual);
 app.use('/musica', rutas_musica);
 
-
 //Middleware
 app.use((request, response, next) => {
     response.render('index');

@@ -4,57 +4,35 @@ const router = express.Router();
 
 //fs: filesystem
 const fs = require('fs');
-const readline = require('readline');
 
-const peliculas = [];
-const series = [];
-const caricaturas = [];
+var peliculas = [];
+var series = [];
+var caricaturas = [];
+
+//Para leer las películas
+fs.readFile('./tops/peliculas.json', (err, data) => {
+    if (err) throw err;
+    peliculas = JSON.parse(data);
+    console.log(peliculas)
+   
+});
+
+//Para leer las series
+fs.readFile('./tops/series.json', (err, data) => {
+    if (err) throw err;
+    series = JSON.parse(data);
+    console.log(series);
+   
+});
+
+//Para leer las caricaturas
+fs.readFile('./tops/caricaturas.json', (err, data) => {
+    if (err) throw err;
+    caricaturas = JSON.parse(data);
+    console.log(caricaturas);
+});
 
 
-const capybaras = [
-    {nombre: "Pedro"}, 
-    {nombre: "Poncho"}, 
-    {nombre: "Pablo"}, 
-    {nombre: "Patricio"}
-];
-
-
-
-/*Función para leer archivos por línea .txt*/
-function leerLinea (archivo,array){
-    const readInterface = readline.createInterface({
-        input: fs.createReadStream(archivo),
-        output: process.stdout,
-        console: false
-    });
-
-    readInterface.on('line', function(line) {
-        array.push(line)
-    });
-}
-
-/******
- * Para películas
-*******/
-leerLinea('tops/peliculas.txt',peliculas);
-
-/******
- * Para series
-*******/
-leerLinea('tops/series.txt',series);
-
-/******
- * Para caricaturas
-*******/
-leerLinea('tops/caricaturas.txt',caricaturas);
-
-/*Función para agregar Películas, series o caricaturas*/
-function agregar(archivo,dato){
-    fs.appendFile(archivo, dato + "\n", (err) => {
-        if (err) throw err;
-        console.log("Agregado correctamente!");
-     });
-}
 
 //Para películas
 router.get('/nuevaPeli', (request, response, next) => {
@@ -64,12 +42,12 @@ router.get('/nuevaPeli', (request, response, next) => {
 
 router.post('/nuevaPeli', (request, response, next) => {
     console.log('POST /nuevaPeli');;
-    let nuevo_dato = request.body.nombre;
-    console.log(nuevo_dato)
-    peliculas.push(nuevo_dato);
-    console.log(peliculas)
+    console.log(request.body);
+    peliculas.push(request.body);
+    // let peli = JSON.stringify(request.body)
+    // fs.writeFileSync('./tops/peliculas.json', peli, 'utf8');
     response.redirect('/audioVisual');
-    agregar("tops/peliculas.txt", nuevo_dato )
+    
        
 });
 
@@ -81,12 +59,11 @@ router.get('/nuevaSerie', (request, response, next) => {
 
 router.post('/nuevaSerie', (request, response, next) => {
     console.log('POST /nuevaSerie');;
-    let nuevo_dato = request.body.nombre;
-    console.log(nuevo_dato)
-    series.push(nuevo_dato);
-    console.log(series)
+    console.log(request.body);
+    series.push(request.body);
+    // let peli = JSON.stringify(request.body)
+    // fs.writeFileSync('./tops/peliculas.json', peli, 'utf8');
     response.redirect('/audioVisual');
-    agregar("tops/series.txt", nuevo_dato )
        
 });
 
@@ -98,18 +75,17 @@ router.get('/nuevaCaricatura', (request, response, next) => {
 
 router.post('/nuevaCaricatura', (request, response, next) => {
     console.log('POST /nuevaCaricatura');;
-    let nuevo_dato = request.body.nombre;
-    console.log(nuevo_dato)
-    caricaturas.push(nuevo_dato);
-    console.log(caricaturas)
+    console.log(request.body);
+    caricaturas.push(request.body);
+    // let peli = JSON.stringify(request.body)
+    // fs.writeFileSync('./tops/peliculas.json', peli, 'utf8');
     response.redirect('/audioVisual');
-    agregar("tops/caricaturas.txt", nuevo_dato )
        
 });
 
 router.use('/', (request, response, next) => {
     console.log('Ruta Principal');
-    response.render('listaVisual', {capybaras: capybaras});
+    response.render('listaVisual', {peliculas: peliculas, series:series, caricaturas:caricaturas})
 });
 
 module.exports = router;
