@@ -1,0 +1,27 @@
+<%- include('includes/head.ejs') %>
+    <h1 id="principal">Este sitio es de Artistas y Bandas favoritas </h1><br>
+    <p>Tenemos los siguientes TOPS:</p>
+    
+    <!-- Artistas -->
+     <br><p>Artistas:</p>
+     <ul class="list-group">
+        <% for (let capybara of capybaras) { %>
+            <li class = "list-group-item list-group-item-dark"><%= capybara.nombre %></li>
+        <%} %>
+     </ul>
+     <br>
+     <a href="musica/nuevoArtista"><button type="button" class="btn btn-outline-secondary">Agregar un nuevo Artista</button></a>
+     <br><br>
+    
+     <!-- Bandas -->
+     <br><p>Bandas:</p>
+     <ul class="list-group">
+        <% for (let capybara of capybaras) { %>
+            <li class = "list-group-item list-group-item-dark"><%= capybara.nombre %></li>
+        <%} %>
+     </ul>
+     <br>
+     <a href="musica/nuevaBanda"><button type="button" class="btn btn-outline-secondary">Agregar una nueva Banda</button></a>
+     <br><br>
+
+<%- include('includes/foot.ejs') %>

@@ -1,0 +1,43 @@
+<%- include('includes/head.ejs') %>
+
+   <body>
+    <h1 id="principal">Este sitio es de Películas, Series y Caricaturas favoritas</h1><br>
+    <p>Tenemos los siguientes TOPS:</p>
+    
+    <!--Películas-->
+     <br><p>Películas:</p>
+     <ul class="list-group">
+        <% for (let capybara of capybaras) { %>
+            <li class = "list-group-item list-group-item-dark"><%= capybara.nombre %></li>
+        <%} %>
+    
+    </ul>
+    <br>
+    <a href="audioVisual/nuevaPeli"><button type="button" class="btn btn-outline-secondary">Agregar un nueva película</button></a>
+    <br><br>
+    
+     <!-- Series -->
+    <br><p>Series:</p>
+    <ul class="list-group">
+        <% for (let capybara of capybaras) { %>
+            <li class = "list-group-item list-group-item-dark"><%= capybara.nombre %></li>
+        <%} %>
+     </ul>
+     <br>
+     <a href="audioVisual/nuevaSerie"><button type="button" class="btn btn-outline-secondary">Agregar una nueva serie</button></a>
+     <br><br>
+    
+     <!-- //Caricaturas -->
+     <br><p>Caricaturas:</p>
+     <ul class="list-group">
+        <% for (let capybara of capybaras) { %>
+            <li class = "list-group-item list-group-item-dark"><%= capybara.nombre %></li>
+        <%} %>
+     </ul>
+     <br>
+     <a href="audioVisual/nuevaCaricatura"><button type="button" class="btn btn-outline-secondary">Agregar un nueva caricatura</button></a>
+     <br><br>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      </div>
+     </body>
+<%- include('includes/foot.ejs') %>

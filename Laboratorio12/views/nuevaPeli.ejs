@@ -1,0 +1,19 @@
+<%- include('includes/head.ejs') %>
+
+   <body>
+    <h1 id="principal">Este sitio es de películas favoritas</h1>
+    <h2>Agrega tu película favorita:</h2>
+    <br>
+    <form action="/audioVisual/nuevaPeli" method="POST">
+    <label for="nombre">Nombre: </label> 
+    <input type="text" id="nombre" name="nombre" placeholder="Titanic"
+    <br><br>
+    <a><input type ="submit" value="Enviar"></a>
+    </form>
+    <br><br>
+    <a href="/audioVisual"><button type="button" class="btn btn-secondary">Regresar a los TOPS de la página</button></a>
+    </div>
+    </body>
+
+
+<%- include('includes/foot.ejs') %>
