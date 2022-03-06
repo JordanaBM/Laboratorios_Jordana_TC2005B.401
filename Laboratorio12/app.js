@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const rutas_capybaras = require('./routes/capybaras.routes');
+
 const rutas_audiovisual = require('./routes/audiovisual.routes');
 const rutas_musica = require('./routes/musica.routes');
 const path = require('path');

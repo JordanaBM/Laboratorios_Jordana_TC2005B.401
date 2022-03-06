@@ -19,6 +19,7 @@ const capybaras = [
 ];
 
 
+
 /*Función para leer archivos por línea .txt*/
 function leerLinea (archivo,array){
     const readInterface = readline.createInterface({
