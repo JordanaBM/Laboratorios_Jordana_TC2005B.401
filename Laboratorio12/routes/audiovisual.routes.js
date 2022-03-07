@@ -44,8 +44,8 @@ router.post('/nuevaPeli', (request, response, next) => {
     console.log('POST /nuevaPeli');;
     console.log(request.body);
     peliculas.push(request.body);
-    // let peli = JSON.stringify(request.body)
-    // fs.writeFileSync('./tops/peliculas.json', peli, 'utf8');
+    let peli = JSON.stringify(peliculas);
+    fs.writeFileSync('./tops/peliculas.json', peli, 'utf8');
     response.redirect('/audioVisual');
     
        
@@ -61,8 +61,8 @@ router.post('/nuevaSerie', (request, response, next) => {
     console.log('POST /nuevaSerie');;
     console.log(request.body);
     series.push(request.body);
-    // let peli = JSON.stringify(request.body)
-    // fs.writeFileSync('./tops/peliculas.json', peli, 'utf8');
+    let serie = JSON.stringify(series);
+    fs.writeFileSync('./tops/series.json', serie, 'utf8');
     response.redirect('/audioVisual');
        
 });
@@ -77,8 +77,8 @@ router.post('/nuevaCaricatura', (request, response, next) => {
     console.log('POST /nuevaCaricatura');;
     console.log(request.body);
     caricaturas.push(request.body);
-    // let peli = JSON.stringify(request.body)
-    // fs.writeFileSync('./tops/peliculas.json', peli, 'utf8');
+    let caricatura = JSON.stringify(caricaturas);
+    fs.writeFileSync('./tops/caricaturas.json', caricatura, 'utf8');
     response.redirect('/audioVisual');
        
 });

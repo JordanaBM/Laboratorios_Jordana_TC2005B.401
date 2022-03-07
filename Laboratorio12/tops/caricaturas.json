@@ -1,6 +1,1 @@
-[
-    { "nombre" : "Los Simpson"},
-    { "nombre" : "Bob Esponja"},
-    { "nombre" : "Hora de Aventura"},
-    { "nombre" : "Phineas y Ferb"}
-]
+[{"nombre":"Scooby Do"},{"nombre":"Bob Esponja"},{"nombre":"Los Simpson"},{"nombre":"Hora de Aventura"}]

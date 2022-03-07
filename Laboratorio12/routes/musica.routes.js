@@ -38,8 +38,8 @@ router.post('/nuevoArtista', (request, response, next) => {
     console.log('POST /nuevoArtista');;
     console.log(request.body);
     artistas.push(request.body);
-    // let peli = JSON.stringify(request.body)
-    // fs.writeFileSync('./tops/peliculas.json', peli, 'utf8');
+    let artista = JSON.stringify(artistas);
+    fs.writeFileSync('./tops/artistas.json', artista, 'utf8');
     response.redirect('/musica');
    
        
@@ -55,8 +55,8 @@ router.post('/nuevaBanda', (request, response, next) => {
     console.log('POST /nuevaBanda');;
     console.log(request.body);
     bandas.push(request.body);
-    // let peli = JSON.stringify(request.body)
-    // fs.writeFileSync('./tops/peliculas.json', peli, 'utf8');
+    let banda= JSON.stringify(bandas);
+    fs.writeFileSync('./tops/bandas.json', banda, 'utf8');
     response.redirect('/musica');
        
 });
