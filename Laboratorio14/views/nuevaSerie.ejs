@@ -1,0 +1,19 @@
+<%- include('includes/head.ejs') %>
+
+   <body>
+    <h1 id="principal">Este sitio es de Series favoritas</h1>
+    <h2>Agrega tu serie favorita:</h2>
+    <br>
+    <form action="/audioVisual/nuevaSerie" method="POST">
+    <label for="nombre">Nombre: </label>
+    <input type="text" id="nombre" name="nombre" placeholder="Drake y Josh"
+    <br><br>
+    <a href="/audioVisual"><input type ="submit" value="Enviar"></a>
+    </form>
+    <br><br>
+    <a href="/audioVisual"><button type="button" class="btn btn-secondary">Regresar a los TOPS de la página</button></a>
+    </div>
+    <br>
+    </body>
+
+<%- include('includes/foot.ejs') %>

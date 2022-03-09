@@ -1,0 +1,19 @@
+<%- include('includes/head.ejs') %>
+
+
+<h1 id="principal">Este sitio es de Bandas favoritas</h1>
+<h2>Agrega tu banda favorita:</h2>
+<br>
+<form action="/musica/nuevaBanda" method="POST">
+<label for="nombre">Nombre: </label> 
+<input type="text" id="nombre" name="nombre" placeholder="AC/DC"
+<br><br>
+<a href="/musica"><input type ="submit" value="Enviar"></a>
+</form>
+<br><br>
+<a href="/musica"><button type="button" class="btn btn-secondary">Regresar a los TOPS de la página</button></a>
+</div>
+<br>
+</body>
+
+<%- include('includes/foot.ejs') %>
