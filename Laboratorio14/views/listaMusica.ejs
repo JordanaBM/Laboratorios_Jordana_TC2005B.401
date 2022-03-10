@@ -10,6 +10,10 @@
         <%} %>
      </ul>
      <br>
+     <% if (ultimo_artista!= '') { %>
+        <p><b>El último artista agregado fue: <%= ultimo_artista %></b></p>
+    <% } %>
+    <br>
      <a href="musica/nuevoArtista"><button type="button" class="btn btn-outline-secondary">Agregar un nuevo Artista</button></a>
      <br><br>
     
@@ -21,6 +25,10 @@
         <%} %>
      </ul>
      <br>
+     <% if (ultima_banda != '') { %>
+        <p><b>La última banda agregada fue: <%= ultima_banda %></b></p>
+    <% } %>
+    <br> 
      <a href="musica/nuevaBanda"><button type="button" class="btn btn-outline-secondary">Agregar una nueva Banda</button></a>
      <br><br>
     </div>
