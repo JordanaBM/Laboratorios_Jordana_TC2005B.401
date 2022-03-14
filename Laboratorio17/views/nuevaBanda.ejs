@@ -1,0 +1,41 @@
+<%- include('includes/head.ejs') %>
+
+
+<h1 id="principal">Este sitio es de Bandas favoritas</h1>
+<h2><%= username %>, agrega tu banda favorita:</h2>
+<br>
+<form action="/musica/nuevaBanda" method="POST">
+<label for="nombre">Nombre: </label> 
+<input type="text" id="nombre" name="nombre" placeholder="AC/DC"
+<br><br>
+<a href="/musica"><input type ="submit" value="Enviar"></a>
+</form>
+<br><br>
+<a href="/musica"><button type="button" class="btn btn-secondary">Regresar a los TOPS de la página</button></a>
+</div>
+<br>
+</body>
+
+<!-- <body>
+    <h1 id="principal">Este sitio es de bandas favoritas</h1>
+    <h2><%= username %>, agrega tu banda favorita:</h2>
+    <br>
+    <form action="/musica/nuevaBanda" method="POST">
+    <label for="nombre">Nombre: </label> 
+    <input type="text" id="nombre" name="nombre" placeholder="">
+    <br><br>
+    <label for="nombre">Información general: </label> 
+    <input type="text" id="sinopsis" name="sinopsis" placeholder="AC/DC es una banda de hard rock británica-australiana, formada en 1973 en Australia por los hermanos escoceses Malcolm Young y Angus Young.">
+    <br><br>
+    <label for="nombre">Imagen: </label> 
+    <input type="text" id="imagen" name="imagen" placeholder="https://fotos00.deia.eus/2020/10/07/1024x341/ac-dc.jpg">
+    <br><br>
+    <a><input type ="submit" value="Enviar"></a>
+    </form>
+    <br><br>
+    <a href="/musica"><button type="button" class="btn btn-secondary">Regresar a los TOPS de musica</button></a>
+    </div>
+    <br>
+    </body> -->
+
+<%- include('includes/foot.ejs') %>
