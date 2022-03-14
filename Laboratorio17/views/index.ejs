@@ -27,34 +27,33 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-        ¿Qué beneficios encuentras en el estilo MVC?
+        ¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?
       </button>
     </h2>
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
-        <b>Las principales ventajas de hacer uso del patrón MVC son:</b><br>
-        <ul>
-          <li>Separar las datos de la representación visual de los mismos</li>
-          <li>Facilita agregar nuevos datos</li>
-          <li>Facilita el mantenimiento en caso de errores</li>
-          <li>Permite escalamiento de las aplicaciones</li>
-        </ul>
+        Es más sencillo agregar nuevos metodos de consultas en sql, no hay necesidad de moficar nada mas, ya que en la capa del modelo es donde se tienen todos los datos.<br>
+      
       </div>
     </div>
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-        ¿Encuentras alguna desventaja en el estilo arquitectónico MVC?
+        ¿Qué es SQL injection y cómo se puede prevenir?
       </button>
     </h2>
     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
       <div class="accordion-body">
-        <b>Algunas desventajas de hacer uso del patrón MVC son:</b><br>
-        <ul>
-         <li>La separación en capas agrega complejidad al sistema</li>
-         <li>La cantidad de archivos a mantener se incrementa</li> 
-        </ul>
+        La inyección de SQL es un tipo de ciberataque encubierto en el cual un hacker inserta código propio en un sitio web con el fin de quebrantar las medidas de seguridad y acceder a datos protegidos. Una vez dentro, puede controlar la base de datos del sitio web y secuestrar la información de los usuarios. <br>
+       <b>¿Cómo evitar el SQL injection?</b><br>
+       <ul>
+         <li>Convierte siempre el valor a su tipo correspondiente</li>
+         <li>Parametrizar las consultas SQL</li>
+         <li>Usar una cuenta con permisos restringidos a la base de datos</li>
+         <li>No mostrar al usuario la información de error generada por la base de datos</li>
+         <li>Rechazar las peticiones con caractéres sospechosos</li>
+       </ul>
       </div>
     </div>
   </div>

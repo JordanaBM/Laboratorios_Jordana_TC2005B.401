@@ -6,6 +6,7 @@ const visualController = require('../controllers/audioVisual_controller');
 //Para películas
 router.get('/nuevaPeli', visualController.get_nueva_peli);
 router.post('/nuevaPeli', visualController.post_nueva_peli);
+router.get('/:idPelicula', visualController.getPelicula);
 
 //Para series
 router.get('/nuevaSerie', visualController.get_nueva_serie);

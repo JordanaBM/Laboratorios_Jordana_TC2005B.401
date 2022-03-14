@@ -17,6 +17,15 @@ module.exports = class Peliculas{
     );
     }
 
+    getPelicula(){
+        return db.execute('Select *  FROM peliculas WHERE idPelicula = (?)',[this.id]
+        );
+    }
+
+    static fetchOnePeli(idPelicula) {
+        return db.execute('SELECT * FROM peliculas WHERE idPelicula=?', [idPelicula]);
+    }
+
     //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAllPeliculas() {
        console.log(db.execute('SELECT * FROM peliculas'));

@@ -52,16 +52,20 @@ exports.post_nueva_banda = (request, response, next) => {
 exports.principal = (request, response, next) => {
     console.log('Ruta principal Música');
     Artistas.fetchAllArtistas()
-        .then(([rows, fieldData]) => {
-        response.render('listaMusica', {
-            artistas: rows,
-            bandas:Bandas.fetchAllBandas(),
-            username: request.session.username ? request.session.username : '',
-            ultimo_artista: request.cookies.ultimo_artista ? request.cookies.ultimo_artista : '',
-            ultima_banda: request.cookies.ultima_banda ? request.cookies.ultima_banda : ''
-        })
-    })
-    .catch(err => console.log(err)); 
-
-  
-}
+        .then(([artistas, fieldData]) => {
+            Bandas.fetchAllBandas()
+            .then(([bandas,fieldData]) => {
+                response.render('listaMusica', {
+                    artistas: artistas,
+                    bandas:bandas,
+                    username: request.session.username ? request.session.username : '',
+                    ultimo_artista: request.cookies.ultimo_artista ? request.cookies.ultimo_artista : '',
+                    ultima_banda: request.cookies.ultima_banda ? request.cookies.ultima_banda : ''
+                })
+            }).catch(error => {
+                console.log(error);
+            });
+        }).catch(error =>{
+            console.log(error);
+        });
+    }
