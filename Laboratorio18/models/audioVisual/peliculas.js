@@ -1,7 +1,7 @@
 const db = require('../../util/database');
 
 
-module.exports = class Caricaturas{
+module.exports = class Peliculas{
 
     //Constructor de la clase. Sirve para crear un nuevo objeto, y en él se definen las propiedades del modelo
     constructor(nuevo_nombre,nueva_sinopsis,nueva_imagen) {
@@ -12,15 +12,25 @@ module.exports = class Caricaturas{
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        return db.execute('INSERT INTO caricaturas (nombre, sinopsis,imagen) VALUES (?, ?,?)',
+        return db.execute('INSERT INTO peliculas (nombre, sinopsis,imagen) VALUES (?, ?,?)',
         [this.nombre, this.sinopsis,this.imagen]
     );
     }
 
+    getPelicula(){
+        return db.execute('Select *  FROM peliculas WHERE idPelicula = (?)',[this.id]
+        );
+    }
+
+    static fetchOnePeli(idPelicula) {
+        return db.execute('SELECT * FROM peliculas WHERE idPelicula=?', [idPelicula]);
+    }
+
     //Este método servirá para devolver los objetos del almacenamiento persistente.
-    static fetchAllCaricaturas() {
-       console.log(db.execute('SELECT * FROM caricaturas'));
-        return db.execute('SELECT * FROM caricaturas');
+    static fetchAllPeliculas() {
+       console.log(db.execute('SELECT * FROM peliculas'));
+        return db.execute('SELECT * FROM peliculas');
     }
  
 }
+
