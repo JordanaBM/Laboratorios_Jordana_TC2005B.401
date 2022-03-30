@@ -12,6 +12,8 @@ router.post('/nuevoArtista', visualController.post_nuevo_artista);
 router.get('/nuevaBanda',isAuth, visualController.get_nueva_banda);
 router.post('/nuevaBanda', visualController.post_nueva_banda);
 
+router.get('/buscarArtista/:valor', isAuth, visualController.buscarArtista);
+
 router.use('/', isAuth,visualController.principal);
 
 module.exports = router;

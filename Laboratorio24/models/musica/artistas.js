@@ -22,5 +22,9 @@ module.exports = class Artistas{
        console.log(db.execute('SELECT * FROM artistas'));
         return db.execute('SELECT * FROM artistas');
     }
+
+    static fetch(valor) {
+        return db.execute('SELECT * FROM artistas  WHERE (nombre LIKE ? OR sinopsis LIKE ?)', ['%'+valor+'%', '%'+valor+'%']);
+    }
  
 }

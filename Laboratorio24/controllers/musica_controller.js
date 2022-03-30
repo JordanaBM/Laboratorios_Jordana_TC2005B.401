@@ -66,3 +66,15 @@ exports.principal = (request, response, next) => {
             console.log(error);
         });
     }
+
+exports.buscarArtista = (request, response, next) => {
+        console.log(request.params.valor);
+        Artistas.fetch(request.params.valor)
+            .then(([rows, fieldData]) => {
+                console.log(rows);
+                response.status(200).json(rows);
+            })
+            .catch(err => {
+                console.log(err);
+            }); 
+    }
