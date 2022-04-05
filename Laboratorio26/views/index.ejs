@@ -1,0 +1,94 @@
+<%- include('includes/head.ejs') %>
+
+  <!-- Para las rutas -->
+  <h1 id="principal">Este sitio es contiene tops de Audio Visuales y Música </h1><br>
+  <p>Tenemos los siguientes TOPS:</p>
+  <br>
+  <p>Audio Visuales (Películas, series y caricaturas):</p>
+  <a href="/audioVisual"><button type="button" class="btn btn-outline-secondary">TOPs de Audio Visuales</button></a>
+  <br><br>
+  <p>Música (Artistas,Bandas):</p>
+  <a href="/musica"><button type="button" class="btn btn-outline-secondary">TOPs de Música</button></a>
+  <br><br>
+
+
+
+  <!-- Preguntas a responder -->
+  <br>
+  <h1>Preguntas a responder</h1>
+  <br>
+
+  <style>
+    .card-title {
+      text-align: center
+    }
+
+    .card-text {
+      text-align: justify
+    }
+  </style>
+
+  <div class="accordion" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+         <b>¿Qué importancia tiene AJAX en el desarrollo de RIA's (Rich Internet Applications?</b>
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+        aria-labelledby="panelsStayOpen-headingOne">
+        <div class="accordion-body">
+          Tiene mucha importancia debido a que, con AJAX, ya no es necesario tener que estar cambiando las vistas de tu página web, creando un ambiente más cómodo para el usuario.
+        </div>
+      </div>
+    </div>
+ <!--Pregunta 2-->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+         <b>¿Qué implicaciones de seguridad tiene AJAX? ¿Dónde se deben hacer las validaciones de seguridad, del lado del cliente o del lado del servidor?</b>
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+        aria-labelledby="panelsStayOpen-headingOne">
+        <div class="accordion-body">
+          Preferentemente deben de ser de ambos lados las validaciones, pero recae más en el lado del servidor, ya que los datos que mande el cliente podrían ser considerados "no confiables".
+        </div>
+      </div>
+    </div>
+     <!--Pregunta 3-->
+     <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+         <b>¿Qué es JSON?</b>
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+        aria-labelledby="panelsStayOpen-headingOne">
+        <div class="accordion-body">
+          JSON es un formato de texto sencillo para el intercambio de datos. Se trata de un subconjunto de la notación literal de objetos de JavaScript, aunque, debido a su amplia adopción como alternativa a XML, se considera un formato independiente del lenguaje.<br>
+          <br><b>JSON se basa en dos estructuras:</b><br>
+          <ul>
+          <li>Una colección de pares de nombre/valor. En varios idiomas, esto se realiza como un objeto , registro, estructura, diccionario, tabla hash, lista con clave o matriz asociativa.</li>
+        <li>  Una lista ordenada de valores. En la mayoría de los lenguajes, esto se realiza como una matriz , un vector, una lista o una secuencia.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  <br><br>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+  </body>
+
+
+  <%- include('includes/foot.ejs') %>

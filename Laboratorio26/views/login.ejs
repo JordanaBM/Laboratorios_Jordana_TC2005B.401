@@ -1,0 +1,52 @@
+<%- include('includes/head.ejs') %>
+
+    <h1 id="principal">Este sitio es de TOP's</h1>
+    <br>
+    <h2>Para ingresar al sitio, introduce tus datos de acceso:</h2>
+
+   
+    <form method="post" onsubmit="return submitUserForm();">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+        <label for="username">Nombre de usuario: </label>
+        <input type="text" id="username" name="username" placeholder="Pedro">
+        <br><br>
+        <label for="password">Contraseña: </label>
+        <input type="password" id="password" name="password">
+        <br><br>
+     <!--Para generar un captcha (y que mis usuarios si sean usaurios)-->
+        <div class="g-recaptcha" data-sitekey="6Lf7aUcfAAAAAPu6COJuMsbRnDIJDbfetbeSK_36" data-callback="verifyCaptcha"></div>
+        <div id="g-recaptcha-error"></div>
+        <input type="submit" name="submit" value="Submit" />
+    </form>
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <script>
+    var recaptcha_response = '';
+
+    // Si el length es igual a 0 es porque no está verificado el captcha
+    function submitUserForm() {
+        if(recaptcha_response.length == 0) {
+            document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+            return false;
+        }
+        return true;
+    }
+     
+    //Le mando el token de scrf
+    function verifyCaptcha(token) {
+        recaptcha_response = token;
+        document.getElementById('g-recaptcha-error').innerHTML = '';
+    }
+    </script>
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    
+    <br><br>
+    <h4>¿Aún no estás registrado?, ¡regístrate para poder ingresar!</h4>
+    <a href="/users/signup"><button type="button" class="btn btn-secondary">Sign up</button></a>
+    <br><br>
+</div>
+
+
+<%- include('includes/foot.ejs') %>
